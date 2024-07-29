@@ -24,7 +24,7 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Position: Provides the correct data format (byte, half-word, word) based on the instruction type.
   * Function: Adjusts the data format according to load/store instructions.
 ## Execute (EX) Stage
-* Modules involved: alu, adder, mux3to1,alucontrol
+* Modules involved: alu, adder, mux3to1
 * ALU (Arithmetic Logic Unit)
   * Purpose: The ALU is responsible for performing arithmetic and logical operations on the operands.
   * Position: It receives operands from the register file or the immediate generator and executes the specified operation.
@@ -39,10 +39,6 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Function:
       * Operand Selection: mux3 allows the selection of different operands for the ALU. For example, it might select between a value from the register file or an immediate value based on the instruction type.
       * Control Signals: The control signals determine which input is forwarded to the ALU. This enables the processor to execute various types of instructions, such as arithmetic operations or data manipulations, based on the instruction being executed.
-* ALU Controller
-  * Purpose: Determines which operation the ALU should perform based on the instruction.
-  * Position: Interfaces between the instruction decode logic and the ALU.
-  * Function: Produces control signals to configure the ALU for the required operation.
 ## Memory Access Stage
 * Modules involved: mem_data
 * Data Memory
