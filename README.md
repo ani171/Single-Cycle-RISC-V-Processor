@@ -11,15 +11,15 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Function: Fetches the instruction based on the program counter (PC) value.
 * Multiplexer (mux2):
   * Purpose: Chooses between different inputs based on a select signal.
-  * Position: Used to select the next PC value (either incremented by 4 for sequential execution or a branch/jump address).
-  * Function: In the IF stage, mux2 can be used to choose between the current PC + 4 or a branch target address for the next instruction to be fetched.
+  * Position: Used to select the next PC value (incremented by 4 for sequential execution or a branch/jump address).
+  * Function: In the IF stage, mux2 can choose between the current PC + 4 or a branch target address for the next instruction to be fetched.
 ## Instruction Decode Stage
 * Modules involved: imm_Gen, data_extract
-* Immediate Generator (imm_Gen):
+* Immediate Generator (immediate_generator):
   * Purpose: Extracts and sign-extends the immediate field from the instruction.
-  * Position: Outputs the immediate value which will be used in the Execute stage.
+  * Position: Outputs the immediate value used in the Execute stage.
   * Function: Generates the immediate value based on the instruction type (I-type, S-type, B-type, etc.).
-* Data Extractor (data_extract):
+* Data Extractor (isntr_decode):
   * Purpose: Extract specific parts of data based on the instruction.
   * Position: Provides the correct data format (byte, half-word, word) based on the instruction type.
   * Function: Adjusts the data format according to load/store instructions.
