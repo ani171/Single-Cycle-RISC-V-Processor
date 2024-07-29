@@ -3,4 +3,13 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
 
 ![128730771-560da5b6-f33b-410c-bc03-2dc68f2c748e](https://github.com/user-attachments/assets/6f05702f-fb0e-48b6-b8b4-dbd9513c9c6d)
 
-
+## Instruction Fetch Stage
+* Modules involved: instructionmemory, mux2
+  * Instruction Memory (instructionmemory):
+  * Purpose: Stores the program instructions. When given a read address (program counter value), it outputs the corresponding instruction.
+  * Position: The output instruction from the instruction memory is fed into the next stage (Instruction Decode).
+  * Function: Fetches the instruction based on the program counter (PC) value.
+* Multiplexer (mux2):
+  * Purpose: Chooses between different inputs based on a select signal.
+  * Position: Used to select the next PC value (either incremented by 4 for sequential execution or a branch/jump address).
+  * Function: In the IF stage, mux2 can be used to choose between the current PC + 4 or a branch target address for the next instruction to be fetched.
