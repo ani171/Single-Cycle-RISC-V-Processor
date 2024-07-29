@@ -45,3 +45,14 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Purpose: Reads from or writes data to memory.
   * Position: Interacts with the data memory based on the address calculated in the EX stage.
   * Function: Performs load and store operations. MemRead and MemWrite signals control whether data is read from or written to memory.
+
+## Write Back Stage
+* Modules involved: reg_file, mux2
+* Register File (reg_file):
+  * Purpose: Stores and updates register values.
+  * Position: Writes the result of the memory read or ALU operation back to the register file.
+  * Function: Ensures the correct value is written to the destination register.
+* Multiplexer (mux2):
+  * Purpose: Select the data to be written back to the register file.
+  * Position: Chooses between ALU result, memory data, or immediate value for write-back.
+  * Function: In the WB stage, mux2 selects whether the data to be written back comes from the ALU, data memory, or another source.
