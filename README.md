@@ -47,11 +47,15 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Function: Performs load and store operations. MemRead and MemWrite signals control whether data is read from or written to memory.
 
 ## Write Back Stage
-* Modules involved: reg_file, mux2
-* Register File (reg_file):
-  * Purpose: Stores and updates register values.
-  * Position: Writes the result of the memory read or ALU operation back to the register file.
-  * Function: Ensures the correct value is written to the destination register.
+* Modules involved: ff_reg,RegFile, mux2
+* Flip-Flop Register
+  * Purpose: Stores intermediate values or state bits between clock cycles.
+  * Position: Positioned within a pipeline stage or data path to hold data temporarily as it moves through different stages or operations.
+  * Function: Ensures that data is held stable between clock edges, enabling sequential operations to work correctly. It updates its stored value based on the clock signal and control inputs.
+* Register File
+  * Purpose: Stores and manages multiple register values used for various computations and data handling within a processor.
+  * Position: Located within the processor’s architecture, it serves as the primary storage for general-purpose registers. It interfaces with other components like the ALU and memory.
+  * Function: Provides read and write access to multiple registers simultaneously, allowing the processor to store and retrieve values quickly. It ensures that the correct value is written to or read from the specified register based on control signals and register addresses.
 * Multiplexer (mux2):
   * Purpose: Select the data to be written back to the register file.
   * Position: Chooses between ALU result, memory data, or immediate value for write-back.
