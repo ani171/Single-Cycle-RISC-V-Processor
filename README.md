@@ -33,7 +33,7 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Purpose: The adder is responsible for performing arithmetic operations, specifically addition. It is used to compute addresses and results in the processor.
   * Position:The adder is positioned in the Execute (EX) stage of the processor pipeline. It receives inputs from various sources such as the current Program Counter (PC), branch offsets, and immediate values.
   * Function:The adder performs addition operations for different tasks:
-* Multiplexer (mux3)
+* Multiplexer (mux3to1)
   * Purpose: The mux3 selects between multiple input sources based on control signals.
   * Position: It is positioned to select between different operands for the ALU operation.
   * Function:
