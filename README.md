@@ -16,10 +16,10 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
 ## Instruction Decode Stage
 * Modules involved: imm_Gen, data_extract
 * Immediate Generator (imm_Gen):
- * Purpose: Extracts and sign-extends the immediate field from the instruction.
- * Position: Outputs the immediate value which will be used in the Execute stage.
- * Function: Generates the immediate value based on the instruction type (I-type, S-type, B-type, etc.).
+  * Purpose: Extracts and sign-extends the immediate field from the instruction.
+  * Position: Outputs the immediate value which will be used in the Execute stage.
+  * Function: Generates the immediate value based on the instruction type (I-type, S-type, B-type, etc.).
 * Data Extractor (data_extract):
- * Purpose: Extract specific parts of data based on the instruction.
- * Position: Provides the correct data format (byte, half-word, word) based on the instruction type.
- * Function: Adjusts the data format according to load/store instructions.
+  * Purpose: Extract specific parts of data based on the instruction.
+  * Position: Provides the correct data format (byte, half-word, word) based on the instruction type.
+  * Function: Adjusts the data format according to load/store instructions.
