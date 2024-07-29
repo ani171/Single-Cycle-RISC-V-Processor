@@ -24,21 +24,25 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Position: Provides the correct data format (byte, half-word, word) based on the instruction type.
   * Function: Adjusts the data format according to load/store instructions.
 ## Execute (EX) Stage
-* Modules involved: alu, adder, mux3to1
+* Modules involved: alu, adder, mux3to1,alucontrol
 * ALU (Arithmetic Logic Unit)
   * Purpose: The ALU is responsible for performing arithmetic and logical operations on the operands.
   * Position: It receives operands from the register file or the immediate generator and executes the specified operation.
   * Function: The ALU performs various operations including addition, subtraction, logical AND/OR, bit shifts, and comparisons. For instance, it might perform an addition to compute the result of an addi instruction or a logical AND operation for an and instruction.
 * Adder (adder)
   * Purpose: The adder is responsible for performing arithmetic operations, specifically addition. It is used to compute addresses and results in the processor.
-  * Position:The adder is positioned in the Execute (EX) stage of the processor pipeline. It receives inputs from various sources such as the current Program Counter (PC), branch offsets, and immediate values.
-  * Function:The adder performs addition operations for different tasks:
+  * Position: The adder is positioned in the Execute (EX) stage of the processor pipeline. It receives inputs from various sources such as the current Program Counter (PC), branch offsets, and immediate values.
+  * Function: The adder performs addition operations for different tasks:
 * Multiplexer (mux3to1)
   * Purpose: The mux3 selects between multiple input sources based on control signals.
   * Position: It is positioned to select between different operands for the ALU operation.
   * Function:
       * Operand Selection: mux3 allows the selection of different operands for the ALU. For example, it might select between a value from the register file or an immediate value based on the instruction type.
       * Control Signals: The control signals determine which input is forwarded to the ALU. This enables the processor to execute various types of instructions, such as arithmetic operations or data manipulations, based on the instruction being executed.
+* ALU Controller
+  * Purpose: Determines which operation the ALU should perform based on the instruction.
+  * Position: Interfaces between the instruction decode logic and the ALU.
+  * Function: Produces control signals to configure the ALU for the required operation.
 ## Memory Access Stage
 * Modules involved: mem_data
 * Data Memory
