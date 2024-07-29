@@ -4,15 +4,15 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
 ![128730771-560da5b6-f33b-410c-bc03-2dc68f2c748e](https://github.com/user-attachments/assets/6f05702f-fb0e-48b6-b8b4-dbd9513c9c6d)
 
 ## Instruction Fetch Stage
-* Modules involved: instructionmemory, mux2
+* Modules involved: instructionmemory, mux2to1
 * Instruction Memory (instructionmemory):
   * Purpose: Stores the program instructions. When given a read address (program counter value), it outputs the corresponding instruction.
   * Position: The output instruction from the instruction memory is fed into the next stage (Instruction Decode).
   * Function: Fetches the instruction based on the program counter (PC) value.
-* Multiplexer (mux2):
+* Multiplexer (mux2to1):
   * Purpose: Chooses between different inputs based on a select signal.
   * Position: Used to select the next PC value (incremented by 4 for sequential execution or a branch/jump address).
-  * Function: In the IF stage, mux2 can choose between the current PC + 4 or a branch target address for the next instruction to be fetched.
+  * Function: In the IF stage, mux2to1 can choose between the current PC + 4 or a branch target address for the next instruction to be fetched.
 ## Instruction Decode Stage
 * Modules involved: imm_Gen, data_extract
 * Immediate Generator (immediate_generator):
@@ -51,7 +51,7 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Function: Performs load and store operations. MemRead and MemWrite signals control whether data is read from or written to memory.
 
 ## Write Back Stage
-* Modules involved: ff_reg,RegFile, mux2
+* Modules involved: ff_reg,RegFile, mux2to1
 * Flip-Flop Register
   * Purpose: Stores intermediate values or state bits between clock cycles.
   * Position: Positioned within a pipeline stage or data path to hold data temporarily as it moves through different stages or operations.
@@ -60,7 +60,7 @@ This repository contains a single-cycle RISC-V processor designed in SystemVeril
   * Purpose: Stores and manages multiple register values used for various computations and data handling within a processor.
   * Position: Located within the processor’s architecture, it serves as the primary storage for general-purpose registers. It interfaces with other components like the ALU and memory.
   * Function: Provides read and write access to multiple registers simultaneously, allowing the processor to store and retrieve values quickly. It ensures that the correct value is written to or read from the specified register based on control signals and register addresses.
-* Multiplexer (mux2):
+* Multiplexer (mux2to1):
   * Purpose: Select the data to be written back to the register file.
   * Position: Chooses between ALU result, memory data, or immediate value for write-back.
-  * Function: In the WB stage, mux2 selects whether the data to be written back comes from the ALU, data memory, or another source.
+  * Function: In the WB stage, mux2to1 selects whether the data to be written back comes from the ALU, data memory, or another source.
