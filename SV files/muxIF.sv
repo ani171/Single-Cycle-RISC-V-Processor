@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module mux2
+module muxIF
     #(parameter WIDTH = 9)
     (input logic [WIDTH-1:0] d0, d1,
      input logic s,
