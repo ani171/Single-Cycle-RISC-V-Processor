@@ -5,7 +5,7 @@ module riscv #(
     )(
     input logic clk, 
     input logic reset, // clock and reset signals
-    output logic [31:0] WB_Data // The ALU_Result
+    output logic [DATA_W-1:0] WB_Data 
     );
 
     logic [6:0] opcode;
