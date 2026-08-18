@@ -91,3 +91,6 @@ The register file contains 32 general-purpose 32-bit registers.
 │   ├── mux2to1.sv                # 2-to-1 multiplexer
 │   ├── mux3to1.sv                # 3-to-1 multiplexer
 │   └── ff_reg.sv                 # Flip-flop register
+├── testbench/
+│   └── riscv_tb_1.sv                
+│   └── riscv_tb.sv  
